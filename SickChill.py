@@ -14,6 +14,7 @@ import traceback
 import sickchill.start
 from sickchill import logger, settings
 from sickchill.init_helpers import check_installed, setup_gettext, setup_lib_path
+from sickchill.media_items import AnimeList
 from sickchill.movies import MovieList
 
 setup_lib_path()
@@ -198,6 +199,7 @@ class SickChill(object):
 
         if settings.DEVELOPER:
             settings.movie_list = MovieList()
+            settings.anime_list = AnimeList()
 
         web_options = {}
         if self.forced_port:
