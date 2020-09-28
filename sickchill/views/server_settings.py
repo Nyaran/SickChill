@@ -14,6 +14,7 @@ from sickchill import logger, settings
 from sickchill.oldbeard.helpers import create_https_certificates, generateApiKey
 from sickchill.views import CalendarHandler, LoginHandler, LogoutHandler, MoviesHandler
 from sickchill.views.api import ApiHandler, KeyHandler
+from .anime import AnimeHandler
 
 from .routes import Route
 
@@ -169,6 +170,11 @@ class SRWebServer(threading.Thread):
 
             url(rf'{self.options["web_root"]}/calendar/?', CalendarHandler, name='calendar'),
 
+            # Anime
+            url(rf'{self.options["web_root"]}/anime/(?P<route>search)/', AnimeHandler, name='anime-search'),
+            url(rf'{self.options["web_root"]}/anime/(.*)', AnimeHandler, name='anime'),
+
+            # Movies
             url(rf'{self.options["web_root"]}/movies/(?P<route>details)/(?P<slug>.*)/', MoviesHandler, name='movies-details'),
             url(rf'{self.options["web_root"]}/movies/(?P<route>remove)/(?P<pk>.*)/', MoviesHandler, name='movies-remove'),
             url(rf'{self.options["web_root"]}/movies/(?P<route>add)/', MoviesHandler, name='movies-add'),

@@ -2,6 +2,7 @@ import random
 from threading import Lock
 from typing import TYPE_CHECKING
 
+from .adba import Connection
 from .init_helpers import setup_gettext, setup_lib_path, sickchill_dir
 
 setup_lib_path()
@@ -13,6 +14,7 @@ from sickchill.oldbeard.numdict import NumDict
 
 if TYPE_CHECKING:
     from .movies import MovieList
+    from .media_items import AnimeList
 
 setup_gettext()
 
@@ -26,7 +28,7 @@ dynamic_strings = (
 )
 
 __INITIALIZED__ = {}
-ADBA_CONNECTION = None
+ADBA_CONNECTION: 'Connection' = None
 ADD_SHOWS_WITH_YEAR = False
 ADD_SHOWS_WO_DIR = False
 ADDIC7ED_PASS = None
@@ -537,6 +539,7 @@ WEB_USERNAME = None
 WINDOWS_SHARES = {}
 
 movie_list: 'MovieList' = None
+anime_list: 'AnimeList' = None
 
 
 def get_backlog_cycle_time():

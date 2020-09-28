@@ -162,6 +162,18 @@
                                 <div style="clear:both;"></div>
                             </li>
                             % if settings.DEVELOPER:
+                            <li id="NAVanime" class="navbar-split dropdown${('', ' active')[topmenu == 'anime']}">
+                                <a href="${reverse_url("anime", "")}" class="dropdown-toggle" aria-haspopup="true" data-toggle="dropdown" data-hover="dropdown"><span>${_('Anime')}</span>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="${reverse_url("anime", "")}"><i class="fa fa-fw fa-home"></i>&nbsp;${_('Anime List')}</a></li>
+                                    <li><a href="${reverse_url("anime-search", "search")}"><i class="fa fa-fw fa-television"></i>&nbsp;${_('Add Anime')}</a></li>
+                                </ul>
+                                <div style="clear:both;"></div>
+                            </li>
+                            % endif
+                            % if settings.DEVELOPER:
                             <li id="NAVmovies" class="navbar-split dropdown${('', ' active')[topmenu == 'movies']}">
                                 <a href="${reverse_url("movies", "")}" class="dropdown-toggle" aria-haspopup="true" data-toggle="dropdown" data-hover="dropdown"><span>${_('Movies')}</span>
                                     <b class="caret"></b>
