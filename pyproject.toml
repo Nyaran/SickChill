@@ -257,7 +257,7 @@ codecov = "^2.1.12"
 black = "^22.1"
 pytest = "^7.0.1"
 isort = "^5.10.1"
-poethepoet = "^0.16.0"
+poethepoet = "^0.19.0"
 po2json = "^0.2.2"
 bandit = "<=1.7.2"
 pyaes = {version = "^1.6.1", optional = true}
